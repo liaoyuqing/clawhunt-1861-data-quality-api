@@ -1,0 +1,246 @@
+﻿python.exe : * Creating isolated environment: venv+pip...
+At E:\AI接单\Clawhunt\delivery\work\1861\run_clean_verification.ps1:57 char:1
++ & $venvPy -m build --wheel --sdist 2>&1 | Out-File -FilePath (Join-Pa ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (* Creating isol...nt: venv+pip...:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+* Installing packages in isolated environment:
+  - setuptools>=68
+* Getting build dependencies for wheel...
+running egg_info
+creating clawhunt_1861_data_quality_api.egg-info
+writing clawhunt_1861_data_quality_api.egg-info\PKG-INFO
+writing dependency_links to clawhunt_1861_data_quality_api.egg-info\dependency_links.txt
+writing requirements to clawhunt_1861_data_quality_api.egg-info\requires.txt
+writing top-level names to clawhunt_1861_data_quality_api.egg-info\top_level.txt
+writing manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+reading manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+writing manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.2.1
+* Building wheel...
+running bdist_wheel
+running build
+running build_py
+creating build\lib\app
+copying app\config.py -> build\lib\app
+copying app\db.py -> build\lib\app
+copying app\di.py -> build\lib\app
+copying app\errors.py -> build\lib\app
+copying app\main.py -> build\lib\app
+copying app\__init__.py -> build\lib\app
+creating build\lib\app\api
+copying app\api\deps.py -> build\lib\app\api
+copying app\api\__init__.py -> build\lib\app\api
+creating build\lib\app\cache
+copying app\cache\client.py -> build\lib\app\cache
+copying app\cache\keys.py -> build\lib\app\cache
+copying app\cache\__init__.py -> build\lib\app\cache
+creating build\lib\app\calc
+copying app\calc\completeness.py -> build\lib\app\calc
+copying app\calc\registry.py -> build\lib\app\calc
+copying app\calc\__init__.py -> build\lib\app\calc
+creating build\lib\app\domain
+copying app\domain\fields.py -> build\lib\app\domain
+copying app\domain\__init__.py -> build\lib\app\domain
+creating build\lib\app\models
+copying app\models\caliber.py -> build\lib\app\models
+copying app\models\crm.py -> build\lib\app\models
+copying app\models\mixins.py -> build\lib\app\models
+copying app\models\staff.py -> build\lib\app\models
+copying app\models\__init__.py -> build\lib\app\models
+creating build\lib\app\repositories
+copying app\repositories\caliber_repo.py -> build\lib\app\repositories
+copying app\repositories\crm_repo.py -> build\lib\app\repositories
+copying app\repositories\__init__.py -> build\lib\app\repositories
+creating build\lib\app\schemas
+copying app\schemas\data_quality.py -> build\lib\app\schemas
+copying app\schemas\envelope.py -> build\lib\app\schemas
+copying app\schemas\__init__.py -> build\lib\app\schemas
+creating build\lib\app\services
+copying app\services\data_quality.py -> build\lib\app\services
+copying app\services\__init__.py -> build\lib\app\services
+creating build\lib\app\api\routes
+copying app\api\routes\data_quality.py -> build\lib\app\api\routes
+copying app\api\routes\health.py -> build\lib\app\api\routes
+copying app\api\routes\__init__.py -> build\lib\app\api\routes
+running egg_info
+writing clawhunt_1861_data_quality_api.egg-info\PKG-INFO
+writing dependency_links to clawhunt_1861_data_quality_api.egg-info\dependency_links.txt
+writing requirements to clawhunt_1861_data_quality_api.egg-info\requires.txt
+writing top-level names to clawhunt_1861_data_quality_api.egg-info\top_level.txt
+reading manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+writing manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+installing to build\bdist.win-amd64\wheel
+running install
+running install_lib
+creating build\bdist.win-amd64\wheel
+creating build\bdist.win-amd64\wheel\app
+creating build\bdist.win-amd64\wheel\app\api
+copying build\lib\app\api\deps.py -> build\bdist.win-amd64\wheel\.\app\api
+creating build\bdist.win-amd64\wheel\app\api\routes
+copying build\lib\app\api\routes\data_quality.py -> build\bdist.win-amd64\wheel\.\app\api\routes
+copying build\lib\app\api\routes\health.py -> build\bdist.win-amd64\wheel\.\app\api\routes
+copying build\lib\app\api\routes\__init__.py -> build\bdist.win-amd64\wheel\.\app\api\routes
+copying build\lib\app\api\__init__.py -> build\bdist.win-amd64\wheel\.\app\api
+creating build\bdist.win-amd64\wheel\app\cache
+copying build\lib\app\cache\client.py -> build\bdist.win-amd64\wheel\.\app\cache
+copying build\lib\app\cache\keys.py -> build\bdist.win-amd64\wheel\.\app\cache
+copying build\lib\app\cache\__init__.py -> build\bdist.win-amd64\wheel\.\app\cache
+creating build\bdist.win-amd64\wheel\app\calc
+copying build\lib\app\calc\completeness.py -> build\bdist.win-amd64\wheel\.\app\calc
+copying build\lib\app\calc\registry.py -> build\bdist.win-amd64\wheel\.\app\calc
+copying build\lib\app\calc\__init__.py -> build\bdist.win-amd64\wheel\.\app\calc
+copying build\lib\app\config.py -> build\bdist.win-amd64\wheel\.\app
+copying build\lib\app\db.py -> build\bdist.win-amd64\wheel\.\app
+copying build\lib\app\di.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\domain
+copying build\lib\app\domain\fields.py -> build\bdist.win-amd64\wheel\.\app\domain
+copying build\lib\app\domain\__init__.py -> build\bdist.win-amd64\wheel\.\app\domain
+copying build\lib\app\errors.py -> build\bdist.win-amd64\wheel\.\app
+copying build\lib\app\main.py -> build\bdist.win-amd64\wheel\.\app
+creating build\bdist.win-amd64\wheel\app\models
+copying build\lib\app\models\caliber.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\crm.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\mixins.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\staff.py -> build\bdist.win-amd64\wheel\.\app\models
+copying build\lib\app\models\__init__.py -> build\bdist.win-amd64\wheel\.\app\models
+creating build\bdist.win-amd64\wheel\app\repositories
+copying build\lib\app\repositories\caliber_repo.py -> build\bdist.win-amd64\wheel\.\app\repositories
+copying build\lib\app\repositories\crm_repo.py -> build\bdist.win-amd64\wheel\.\app\repositories
+copying build\lib\app\repositories\__init__.py -> build\bdist.win-amd64\wheel\.\app\repositories
+creating build\bdist.win-amd64\wheel\app\schemas
+copying build\lib\app\schemas\data_quality.py -> build\bdist.win-amd64\wheel\.\app\schemas
+copying build\lib\app\schemas\envelope.py -> build\bdist.win-amd64\wheel\.\app\schemas
+copying build\lib\app\schemas\__init__.py -> build\bdist.win-amd64\wheel\.\app\schemas
+creating build\bdist.win-amd64\wheel\app\services
+copying build\lib\app\services\data_quality.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\services\__init__.py -> build\bdist.win-amd64\wheel\.\app\services
+copying build\lib\app\__init__.py -> build\bdist.win-amd64\wheel\.\app
+running install_egg_info
+Copying clawhunt_1861_data_quality_api.egg-info to build\bdist.win-amd64\wheel\.\clawhunt_1861_data_quality_api-1.0.0-py3.11.egg-info
+running install_scripts
+creating build\bdist.win-amd64\wheel\clawhunt_1861_data_quality_api-1.0.0.dist-info\WHEEL
+creating 'E:\\AI�ӵ�\\Clawhunt\\delivery\\work\\1861\\clean\\dist\\.tmp-ke8ihmee\\clawhunt_1861_data_quality_api-1.0.0-py3-none-any.whl' and adding 'build\\bdist.win-amd64\\wheel' to it
+adding 'app/__init__.py'
+adding 'app/config.py'
+adding 'app/db.py'
+adding 'app/di.py'
+adding 'app/errors.py'
+adding 'app/main.py'
+adding 'app/api/__init__.py'
+adding 'app/api/deps.py'
+adding 'app/api/routes/__init__.py'
+adding 'app/api/routes/data_quality.py'
+adding 'app/api/routes/health.py'
+adding 'app/cache/__init__.py'
+adding 'app/cache/client.py'
+adding 'app/cache/keys.py'
+adding 'app/calc/__init__.py'
+adding 'app/calc/completeness.py'
+adding 'app/calc/registry.py'
+adding 'app/domain/__init__.py'
+adding 'app/domain/fields.py'
+adding 'app/models/__init__.py'
+adding 'app/models/caliber.py'
+adding 'app/models/crm.py'
+adding 'app/models/mixins.py'
+adding 'app/models/staff.py'
+adding 'app/repositories/__init__.py'
+adding 'app/repositories/caliber_repo.py'
+adding 'app/repositories/crm_repo.py'
+adding 'app/schemas/__init__.py'
+adding 'app/schemas/data_quality.py'
+adding 'app/schemas/envelope.py'
+adding 'app/services/__init__.py'
+adding 'app/services/data_quality.py'
+adding 'clawhunt_1861_data_quality_api-1.0.0.dist-info/METADATA'
+adding 'clawhunt_1861_data_quality_api-1.0.0.dist-info/WHEEL'
+adding 'clawhunt_1861_data_quality_api-1.0.0.dist-info/top_level.txt'
+adding 'clawhunt_1861_data_quality_api-1.0.0.dist-info/RECORD'
+removing build\bdist.win-amd64\wheel
+* Creating isolated environment: venv+pip...
+* Installing packages in isolated environment:
+  - setuptools>=68
+* Getting build dependencies for sdist...
+running egg_info
+writing clawhunt_1861_data_quality_api.egg-info\PKG-INFO
+writing dependency_links to clawhunt_1861_data_quality_api.egg-info\dependency_links.txt
+writing requirements to clawhunt_1861_data_quality_api.egg-info\requires.txt
+writing top-level names to clawhunt_1861_data_quality_api.egg-info\top_level.txt
+reading manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+writing manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+* Installed build dependency versions:
+  - setuptools==84.2.1
+* Building sdist...
+running sdist
+running egg_info
+writing clawhunt_1861_data_quality_api.egg-info\PKG-INFO
+writing dependency_links to clawhunt_1861_data_quality_api.egg-info\dependency_links.txt
+writing requirements to clawhunt_1861_data_quality_api.egg-info\requires.txt
+writing top-level names to clawhunt_1861_data_quality_api.egg-info\top_level.txt
+reading manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+writing manifest file 'clawhunt_1861_data_quality_api.egg-info\SOURCES.txt'
+running check
+creating clawhunt_1861_data_quality_api-1.0.0
+creating clawhunt_1861_data_quality_api-1.0.0\app
+creating clawhunt_1861_data_quality_api-1.0.0\app\api
+creating clawhunt_1861_data_quality_api-1.0.0\app\api\routes
+creating clawhunt_1861_data_quality_api-1.0.0\app\cache
+creating clawhunt_1861_data_quality_api-1.0.0\app\calc
+creating clawhunt_1861_data_quality_api-1.0.0\app\domain
+creating clawhunt_1861_data_quality_api-1.0.0\app\models
+creating clawhunt_1861_data_quality_api-1.0.0\app\repositories
+creating clawhunt_1861_data_quality_api-1.0.0\app\schemas
+creating clawhunt_1861_data_quality_api-1.0.0\app\services
+creating clawhunt_1861_data_quality_api-1.0.0\clawhunt_1861_data_quality_api.egg-info
+creating clawhunt_1861_data_quality_api-1.0.0\tests
+copying files to clawhunt_1861_data_quality_api-1.0.0...
+copying README.md -> clawhunt_1861_data_quality_api-1.0.0
+copying pyproject.toml -> clawhunt_1861_data_quality_api-1.0.0
+copying app\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app
+copying app\config.py -> clawhunt_1861_data_quality_api-1.0.0\app
+copying app\db.py -> clawhunt_1861_data_quality_api-1.0.0\app
+copying app\di.py -> clawhunt_1861_data_quality_api-1.0.0\app
+copying app\errors.py -> clawhunt_1861_data_quality_api-1.0.0\app
+copying app\main.py -> clawhunt_1861_data_quality_api-1.0.0\app
+copying app\api\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\api
+copying app\api\deps.py -> clawhunt_1861_data_quality_api-1.0.0\app\api
+copying app\api\routes\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\api\routes
+copying app\api\routes\data_quality.py -> clawhunt_1861_data_quality_api-1.0.0\app\api\routes
+copying app\api\routes\health.py -> clawhunt_1861_data_quality_api-1.0.0\app\api\routes
+copying app\cache\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\cache
+copying app\cache\client.py -> clawhunt_1861_data_quality_api-1.0.0\app\cache
+copying app\cache\keys.py -> clawhunt_1861_data_quality_api-1.0.0\app\cache
+copying app\calc\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\calc
+copying app\calc\completeness.py -> clawhunt_1861_data_quality_api-1.0.0\app\calc
+copying app\calc\registry.py -> clawhunt_1861_data_quality_api-1.0.0\app\calc
+copying app\domain\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\domain
+copying app\domain\fields.py -> clawhunt_1861_data_quality_api-1.0.0\app\domain
+copying app\models\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\models
+copying app\models\caliber.py -> clawhunt_1861_data_quality_api-1.0.0\app\models
+copying app\models\crm.py -> clawhunt_1861_data_quality_api-1.0.0\app\models
+copying app\models\mixins.py -> clawhunt_1861_data_quality_api-1.0.0\app\models
+copying app\models\staff.py -> clawhunt_1861_data_quality_api-1.0.0\app\models
+copying app\repositories\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\repositories
+copying app\repositories\caliber_repo.py -> clawhunt_1861_data_quality_api-1.0.0\app\repositories
+copying app\repositories\crm_repo.py -> clawhunt_1861_data_quality_api-1.0.0\app\repositories
+copying app\schemas\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\schemas
+copying app\schemas\data_quality.py -> clawhunt_1861_data_quality_api-1.0.0\app\schemas
+copying app\schemas\envelope.py -> clawhunt_1861_data_quality_api-1.0.0\app\schemas
+copying app\services\__init__.py -> clawhunt_1861_data_quality_api-1.0.0\app\services
+copying app\services\data_quality.py -> clawhunt_1861_data_quality_api-1.0.0\app\services
+copying clawhunt_1861_data_quality_api.egg-info\PKG-INFO -> clawhunt_1861_data_quality_api-1.0.0\clawhunt_1861_data_quality_api.egg-info
+copying clawhunt_1861_data_quality_api.egg-info\SOURCES.txt -> clawhunt_1861_data_quality_api-1.0.0\clawhunt_1861_data_quality_api.egg-info
+copying clawhunt_1861_data_quality_api.egg-info\dependency_links.txt -> clawhunt_1861_data_quality_api-1.0.0\clawhunt_1861_data_quality_api.egg-info
+copying clawhunt_1861_data_quality_api.egg-info\requires.txt -> clawhunt_1861_data_quality_api-1.0.0\clawhunt_1861_data_quality_api.egg-info
+copying clawhunt_1861_data_quality_api.egg-info\top_level.txt -> clawhunt_1861_data_quality_api-1.0.0\clawhunt_1861_data_quality_api.egg-info
+copying tests\test_ac1_completeness.py -> clawhunt_1861_data_quality_api-1.0.0\tests
+copying tests\test_ac2_caliber.py -> clawhunt_1861_data_quality_api-1.0.0\tests
+copying tests\test_ac3_projection.py -> clawhunt_1861_data_quality_api-1.0.0\tests
+copying tests\test_db_integration.py -> clawhunt_1861_data_quality_api-1.0.0\tests
+Writing clawhunt_1861_data_quality_api-1.0.0\setup.cfg
+Creating tar archive
+removing 'clawhunt_1861_data_quality_api-1.0.0' (and everything under it)
+Successfully built clawhunt_1861_data_quality_api-1.0.0-py3-none-any.whl and clawhunt_1861_data_quality_api-1.0.0.tar.gz

@@ -1,0 +1,64 @@
+{
+  "code": 0,
+  "message": "ok",
+  "data": {
+    "site_id": "11111111-1111-4111-8111-111111111111",
+    "staff_id": "33333333-3333-4333-8333-333333333333",
+    "caliber_version": "v1",
+    "field_count": 8,
+    "enterprise_count": 2,
+    "cell_total": 16,
+    "cell_filled": 13,
+    "completeness": 0.8125,
+    "target_pct": 95.0,
+    "gap_to_target": 0.1375,
+    "managers": [
+      {
+        "staff_id": "33333333-3333-4333-8333-333333333333",
+        "staff_name": "会员经理甲",
+        "enterprise_count": 2,
+        "completeness": 0.8125,
+        "gap_to_target": 0.1375
+      }
+    ],
+    "top_missing_fields": [
+      {
+        "field_key": "contact.job_title",
+        "label": "职位",
+        "missing": 1,
+        "total": 2
+      },
+      {
+        "field_key": "enterprise.stage",
+        "label": "阶段",
+        "missing": 1,
+        "total": 2
+      },
+      {
+        "field_key": "enterprise.track",
+        "label": "赛道",
+        "missing": 1,
+        "total": 2
+      }
+    ],
+    "capability_cards": {
+      "total": 2,
+      "confirmed": 2,
+      "completion_rate": 1.0,
+      "fresh_confirmed": 1,
+      "freshness_rate": 0.5,
+      "fresh_days": 90
+    },
+    "low_completeness": [
+      {
+        "id": "e2000000-0000-4000-8000-000000000002",
+        "name": "云栖生物"
+      }
+    ],
+    "low_completeness_threshold_pct": 80.0,
+    "low_completeness_total": 1,
+    "stale": false,
+    "cache_hit": false
+  },
+  "request_id": "7c2ba8a5129e464485bd709d66558356"
+}

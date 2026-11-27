@@ -1,0 +1,7 @@
+﻿OPENAPI_VERSION=3.1.0
+PATHS=3
+  /api/dash/data-quality -> ['get']
+  /api/healthz -> ['get']
+  /api/readyz -> ['get']
+OPENAPI_YAML_BYTES=9245
+OPENAPI_JSON_BYTES=13364

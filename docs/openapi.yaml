@@ -1,0 +1,317 @@
+openapi: 3.1.0
+info:
+  title: Member-space data quality dashboard API
+  description: Aggregate endpoint behind the management dashboard's profile-completeness panel. Reads
+    the S2-CRM mirror read-only and takes its field list from the metric-caliber library, so a new caliber
+    version changes the numbers without a redeploy.
+  version: 1.0.0
+paths:
+  /api/healthz:
+    get:
+      tags:
+      - ops
+      summary: Liveness probe
+      operationId: healthz_api_healthz_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties:
+                  type: string
+                type: object
+                title: Response Healthz Api Healthz Get
+  /api/readyz:
+    get:
+      tags:
+      - ops
+      summary: Readiness probe with registered calc names
+      operationId: readyz_api_readyz_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                additionalProperties: true
+                type: object
+                title: Response Readyz Api Readyz Get
+  /api/dash/data-quality:
+    get:
+      tags:
+      - dashboard
+      summary: Enterprise profile completeness aggregate for the management dashboard
+      description: 'Aggregates the CRM read-only slice for one site: overall completeness against the
+        95% target, per member-manager completeness and enterprise count, the five fields with the most
+        gaps, capability-card completion and 90-day freshness, and the list of enterprises below 80% completeness
+        projected to id and name only.'
+      operationId: data_quality_api_dash_data_quality_get
+      parameters:
+      - name: site_id
+        in: query
+        required: true
+        schema:
+          type: string
+          format: uuid
+          description: Member-space site id (UUID)
+          title: Site Id
+        description: Member-space site id (UUID)
+      - name: staff_id
+        in: query
+        required: false
+        schema:
+          anyOf:
+          - type: string
+            format: uuid
+          - type: 'null'
+          description: Optional member-manager id
+          title: Staff Id
+        description: Optional member-manager id
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          maximum: 200
+          minimum: 1
+          description: Max rows in low_completeness
+          default: 50
+          title: Limit
+        description: Max rows in low_completeness
+      - name: authorization
+        in: header
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Authorization
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Envelope_DataQualityData_'
+        '401':
+          description: Missing or invalid bearer token
+        '403':
+          description: Token lacks the dash.quality.read scope
+        '422':
+          description: Invalid query or an empty caliber field list (FIELD_LIST_EMPTY)
+components:
+  schemas:
+    CapabilityCardStats:
+      properties:
+        total:
+          type: integer
+          title: Total
+        confirmed:
+          type: integer
+          title: Confirmed
+        completion_rate:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Completion Rate
+        fresh_confirmed:
+          type: integer
+          title: Fresh Confirmed
+        freshness_rate:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Freshness Rate
+        fresh_days:
+          type: integer
+          title: Fresh Days
+      type: object
+      required:
+      - total
+      - confirmed
+      - fresh_confirmed
+      - fresh_days
+      title: CapabilityCardStats
+    DataQualityData:
+      properties:
+        site_id:
+          type: string
+          title: Site Id
+        staff_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          title: Staff Id
+        caliber_version:
+          type: string
+          title: Caliber Version
+        field_count:
+          type: integer
+          title: Field Count
+        enterprise_count:
+          type: integer
+          title: Enterprise Count
+        cell_total:
+          type: integer
+          title: Cell Total
+        cell_filled:
+          type: integer
+          title: Cell Filled
+        completeness:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Completeness
+          description: Filled cells / total cells; null when there are no rows
+        target_pct:
+          type: number
+          title: Target Pct
+        gap_to_target:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Gap To Target
+          description: target_pct/100 - completeness, rounded to 4 decimals
+        managers:
+          items:
+            $ref: '#/components/schemas/ManagerRow'
+          type: array
+          title: Managers
+        top_missing_fields:
+          items:
+            $ref: '#/components/schemas/FieldGap'
+          type: array
+          title: Top Missing Fields
+        capability_cards:
+          $ref: '#/components/schemas/CapabilityCardStats'
+        low_completeness:
+          items:
+            $ref: '#/components/schemas/LowCompletenessEnterprise'
+          type: array
+          title: Low Completeness
+        low_completeness_threshold_pct:
+          type: number
+          title: Low Completeness Threshold Pct
+        low_completeness_total:
+          type: integer
+          title: Low Completeness Total
+        stale:
+          type: boolean
+          title: Stale
+          description: True when served from a degraded caliber cache
+          default: false
+        cache_hit:
+          type: boolean
+          title: Cache Hit
+          default: false
+      type: object
+      required:
+      - site_id
+      - caliber_version
+      - field_count
+      - enterprise_count
+      - cell_total
+      - cell_filled
+      - target_pct
+      - managers
+      - top_missing_fields
+      - capability_cards
+      - low_completeness
+      - low_completeness_threshold_pct
+      - low_completeness_total
+      title: DataQualityData
+    Envelope_DataQualityData_:
+      properties:
+        code:
+          type: integer
+          title: Code
+          description: 0 means success, non-zero is a business error code
+          default: 0
+        message:
+          type: string
+          title: Message
+          default: ok
+        data:
+          anyOf:
+          - $ref: '#/components/schemas/DataQualityData'
+          - type: 'null'
+        request_id:
+          type: string
+          title: Request Id
+          description: Trace id echoed from the X-Request-Id header
+          default: ''
+      type: object
+      title: Envelope[DataQualityData]
+    FieldGap:
+      properties:
+        field_key:
+          type: string
+          title: Field Key
+          description: Caliber-library field key, e.g. enterprise.track
+        label:
+          type: string
+          title: Label
+          description: Human readable label of the field
+        missing:
+          type: integer
+          title: Missing
+          description: Number of enterprises missing this field
+        total:
+          type: integer
+          title: Total
+          description: Number of enterprises evaluated for this field
+      type: object
+      required:
+      - field_key
+      - label
+      - missing
+      - total
+      title: FieldGap
+    LowCompletenessEnterprise:
+      properties:
+        id:
+          type: string
+          title: Id
+        name:
+          type: string
+          title: Name
+      type: object
+      required:
+      - id
+      - name
+      title: LowCompletenessEnterprise
+      description: 'Projection is deliberately minimal: id and name only.
+
+
+        No phone / uscc / contact data may ever be added to this model; the test suite
+
+        asserts the exact key set of the serialised payload.'
+    ManagerRow:
+      properties:
+        staff_id:
+          type: string
+          title: Staff Id
+        staff_name:
+          type: string
+          title: Staff Name
+        enterprise_count:
+          type: integer
+          title: Enterprise Count
+        completeness:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Completeness
+          description: null when the manager owns no enterprise in this site
+        gap_to_target:
+          anyOf:
+          - type: number
+          - type: 'null'
+          title: Gap To Target
+      type: object
+      required:
+      - staff_id
+      - staff_name
+      - enterprise_count
+      title: ManagerRow
